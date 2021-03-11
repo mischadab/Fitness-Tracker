@@ -6,7 +6,7 @@ const Workout = require("../models/workout");
 // api route to post data to the database
 router.post("/api/workouts", (req, res) => {
     Workout.create({})
-    .then(workoutDB => {
-        res.json(workoutDB)
-    }) 
+        .then(workoutDB => {
+            res.json(workoutDB)
+        })
 });
