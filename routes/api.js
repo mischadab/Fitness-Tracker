@@ -10,3 +10,21 @@ router.post("/api/workouts", (req, res) => {
             res.json(workoutDB)
         })
 });
+
+// api route to search for a workout
+router.get("/api/workouts", (req, res) => {
+    Workout.find()
+    .then((workoutDB) => {
+        res.json(workoutDB)
+    })
+});
+
+// api route to insert new workout
+router.put("/api/workouts/:id", ({ body, params }, res) => {
+    Workout.findByIdAndUpdate(
+        params.id,
+        { $push: { exercises: body } },
+        // this checks and ensures the new exercises added meets schema requirements
+        { new: true, runValidators: true }
+    )
+})
