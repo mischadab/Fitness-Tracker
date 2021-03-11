@@ -28,3 +28,5 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
         { new: true, runValidators: true }
     )
 })
+
+module.exports = router;
