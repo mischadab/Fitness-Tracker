@@ -16,7 +16,7 @@ router.post("/api/workouts", (req, res) => {
 
 // api route to search for a workout
 router.get("/api/workouts", (req, res) => {
-    Workout.find([
+    Workout.aggregate([
         {
             $addFields: {
                 totalDuration: {
@@ -34,7 +34,7 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-    Workout.find([
+    Workout.aggregate([
         {
             $addFields: {
                 totalDuration: {
