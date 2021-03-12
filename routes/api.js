@@ -25,6 +25,8 @@ router.get("/api/workouts", (req, res) => {
             },
         },
     ])
+    .sort({ _id: -1 })
+    .limit(7)
     .then((workoutDB) => {
         res.json(workoutDB)
     })
