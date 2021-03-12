@@ -9,6 +9,9 @@ router.post("/api/workouts", (req, res) => {
         .then(workoutDB => {
             res.json(workoutDB)
         })
+        .catch((err) => {
+            res.json(err)
+        })
 });
 
 // api route to search for a workout
@@ -16,6 +19,9 @@ router.get("/api/workouts", (req, res) => {
     Workout.find()
     .then((workoutDB) => {
         res.json(workoutDB)
+    })
+    .catch((err) => {
+        res.json(err)
     })
 });
 
