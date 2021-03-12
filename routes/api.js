@@ -16,7 +16,15 @@ router.post("/api/workouts", (req, res) => {
 
 // api route to search for a workout
 router.get("/api/workouts", (req, res) => {
-    Workout.find()
+    Workout.find([
+        {
+            $addFields: {
+                totalDuration: {
+                    $sum: "$exercises.duration"
+                },
+            },
+        },
+    ])
     .then((workoutDB) => {
         res.json(workoutDB)
     })
