@@ -33,6 +33,17 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
         // this checks and ensures the new exercises added meets schema requirements
         { new: true, runValidators: true }
     )
-})
+});
+
+// delete a workout
+router.delete("/api/workouts", ({ body}, res) => {
+    Workout.findByIdAndDelete(body, id)
+    .then(() => {
+        res.json(true);
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+});
 
 module.exports = router;
