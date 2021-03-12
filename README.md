@@ -7,6 +7,7 @@ This application allows a user to input their workout type - resistance or cardi
 
 `` DEPLOYED HEROKU LINK ``
 
+https://mischa-fitness-tracker.herokuapp.com/
 
 
 `` SCREENSHOTS ``
